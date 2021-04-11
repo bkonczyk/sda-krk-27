@@ -11,6 +11,6 @@ public class CommandLineRunnerLog implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // tutaj chcemy cos zalogowac po inicjalizacji aplikacji
-        this.log.info("Moj pierwszy komponent");
+        log.info("Moj pierwszy komponent");
     }
 }
