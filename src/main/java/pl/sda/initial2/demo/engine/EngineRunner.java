@@ -1,7 +1,6 @@
 package pl.sda.initial2.demo.engine;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -10,11 +9,10 @@ import javax.annotation.PostConstruct;
 @RequiredArgsConstructor
 public class EngineRunner {
 
-    @Qualifier(value = "dieselEngineService")
-    private final EngineService engineService;
+    private final EngineService kaszlok;
 
     @PostConstruct
     public void runEngine() {
-        engineService.startEngine();
+        kaszlok.startEngine();
     }
 }

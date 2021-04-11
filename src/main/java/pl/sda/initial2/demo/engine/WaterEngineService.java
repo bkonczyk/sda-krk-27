@@ -1,0 +1,9 @@
+package pl.sda.initial2.demo.engine;
+
+public class WaterEngineService implements EngineService {
+
+    @Override
+    public void startEngine() {
+        System.out.println("Dzwiek silnika napedzanego woda");
+    }
+}

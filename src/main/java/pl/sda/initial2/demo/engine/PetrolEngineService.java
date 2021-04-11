@@ -1,9 +1,5 @@
 package pl.sda.initial2.demo.engine;
 
-import org.springframework.stereotype.Service;
-
-@Service
-// petrolEngineService
 public class PetrolEngineService implements EngineService {
 
     @Override
