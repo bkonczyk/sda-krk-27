@@ -1,10 +1,13 @@
 package pl.sda.initial2.demo.rest.car;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Value
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 class UpdateCarRequest {
 
-    Long id;
     Long distance;
 }

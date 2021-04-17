@@ -11,34 +11,33 @@ import java.util.List;
 @RequestMapping("/api/cars")
 public class CarController {
 
-    // tu wstrzyknac service
-    private final CarRepository repository;
+    private final CarService service;
 
     @GetMapping
     public List<Car> getCars() {
-        return repository.getAllCars();
+        return service.getAllCars();
     }
 
     @GetMapping(value = "/{id}")
     public Car getCar(@PathVariable Long id) {
-        return repository.getCar(id);
+        return service.getCar(id);
     }
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     public void addCar(@RequestBody CreateCarRequest request) {
-        repository.addCar(request);
+        service.addCar(request);
     }
 
-    @PutMapping
+    @PutMapping(value = "/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    public void updateCar(@RequestBody UpdateCarRequest request) {
-        repository.updateCar(request);
+    public void updateCar(@PathVariable Long id, @RequestBody UpdateCarRequest request) {
+        service.updateCar(id, request);
     }
 
     @DeleteMapping(value = "/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public void deleteCar(@PathVariable Long id) {
-        repository.deleteCar(id);
+        service.deleteCar(id);
     }
 }
