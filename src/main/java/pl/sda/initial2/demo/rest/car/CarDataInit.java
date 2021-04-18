@@ -1,6 +1,8 @@
 package pl.sda.initial2.demo.rest.car;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -9,6 +11,8 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
+@Profile("dev")
+@Slf4j
 class CarDataInit {
 
     private final CarRepository carRepository;
@@ -17,6 +21,7 @@ class CarDataInit {
     void addCars() {
         List<Car> carsList = createCarsList();
         carRepository.saveAll(carsList);
+        log.info("Sample data initialized");
     }
 
     private List<Car> createCarsList() {
