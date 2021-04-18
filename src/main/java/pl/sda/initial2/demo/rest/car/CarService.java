@@ -22,9 +22,9 @@ public class CarService {
         return carRepository.findById(id).get();
     }
 
-    public void addCar(CreateCarRequest request) {
+    public Car addCar(CreateCarRequest request) {
         Car car = CarMapper.mapFromCreateRequest(request);
-        carRepository.save(car);
+        return carRepository.save(car);
     }
 
     @Transactional

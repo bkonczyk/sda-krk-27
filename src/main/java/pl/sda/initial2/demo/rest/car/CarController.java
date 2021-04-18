@@ -1,7 +1,10 @@
 package pl.sda.initial2.demo.rest.car;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,10 +26,23 @@ public class CarController {
         return service.getCar(id);
     }
 
+//    @PostMapping
+//    @ResponseStatus(code = HttpStatus.CREATED)
+//    public Car addCar(@RequestBody CreateCarRequest request) {
+//        return service.addCar(request);
+//    }
+
     @PostMapping
-    @ResponseStatus(code = HttpStatus.CREATED)
-    public void addCar(@RequestBody CreateCarRequest request) {
-        service.addCar(request);
+    public ResponseEntity<Car> addCar(@RequestBody CreateCarRequest request) {
+        Car car = service.addCar(request);
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.set("Some Header", "Some Header Value");
+
+        return ResponseEntity
+            .status(HttpStatus.CREATED)
+            .headers(httpHeaders)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(car);
     }
 
     @PutMapping(value = "/{id}")
