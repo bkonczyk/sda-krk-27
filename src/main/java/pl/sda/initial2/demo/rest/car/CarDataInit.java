@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
+import pl.sda.initial2.demo.config.Constants;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-@Profile("dev")
+@Profile(Constants.DEV_PROFILE)
 @Slf4j
 class CarDataInit {
 
